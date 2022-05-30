@@ -126,6 +126,19 @@ class Project
           phone
           email
         }
+        abstract {
+          units {
+            moveInReady
+            available
+            sold
+            total
+          }
+        }
+        socialLinks {
+          facebook
+          twitter
+          instagram
+        }
         overview
         overviewHeadline
         insertedAt
