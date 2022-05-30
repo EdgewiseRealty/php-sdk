@@ -13,7 +13,7 @@ it again.
 To use the SDK, include the init.php file.
 
 ```php
-require_once('/path/to/edgewise-php/init.php');
+require_once('/path/to/edgewise-php-sdk/init.php');
 ```
 
 ## Dependencies
