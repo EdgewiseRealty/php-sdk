@@ -60,10 +60,13 @@ class EdgewiseClient
   {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $this->endpoint);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
     curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, ["content-type: application/json"]);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+      "content-type: application/json",
+      "authorization: Bearer $this->token"
+    ]);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_FAILONERROR, true);
     
     $result = curl_exec($ch);
