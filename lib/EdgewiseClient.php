@@ -33,6 +33,7 @@ class EdgewiseClient
   public function __get($name)
   {
     $services_map = [
+      "leads" => \Edgewise\Lead::class,
       "projects" => \Edgewise\Project::class
     ];
 
