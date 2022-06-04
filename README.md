@@ -24,12 +24,25 @@ The SDK require the following extensions in order to work properly:
 
 ## Getting Started
 
-Simple usage looks like:
+Retrieve a project:
 
 ```php
 $edgewise = new \Edgewise\EdgewiseClient(['access_token' => 'my_edgewise_access_token']);
 $project = $edgewise->projects->get("project_id_or_slug");
 echo $project;
+```
+
+Contact a project (upserts a lead):
+
+```php
+$edgewise = new \Edgewise\EdgewiseClient(['access_token' => 'my_edgewise_access_token']);
+$edgewise->projects->contact([
+  "projectId" => $project_id,
+  "name" => "Peter Parker",
+  "email" => "peter@dailybugle.com",
+  "text" => "Testing PHP SDK."
+]);
+echo $project_contact;
 ```
 
 ## Examples
@@ -42,7 +55,8 @@ the example you want to run.
 docker run -it --rm \
 --name edgewise-example \
 -e EDGEWISE_ACCESS_TOKEN=my_edgewise_access_token \
+-e EDGEWISE_PROJECT_ID=project_id_or_slug \
 -v "$PWD":/otp/app \
 -w /otp/app/examples/ \
-php:7.4-cli php get_project.php
+php:7.4-cli php project_info.php
 ```
