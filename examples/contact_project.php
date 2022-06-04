@@ -8,12 +8,19 @@ try {
   $config = ["access_token" => $access_token];
   $edgewise = new \Edgewise\EdgewiseClient($config);
 
-  print_r($edgewise->projects->contact([
+  /**
+   * See GraphQL API ContactProjectInput for required / optional fields.
+   * https://edgewiserealty.com/docs/api-reference/types/ContactProjectInput
+   */
+
+  $project_contact = $edgewise->projects->contact([
     "projectId" => $project_id,
     "name" => "Peter Parker",
     "email" => "peter@dailybugle.com",
     "text" => "Testing PHP SDK."
-  ]));
+  ]);
+
+  print_r($project_contact);
 
 } catch (\Exception $e) {
   echo 'Error: ',  $e->getMessage(), "\n";
