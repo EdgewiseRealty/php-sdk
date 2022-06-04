@@ -3,9 +3,10 @@ require '../init.php';
 
 try {
   $access_token = getenv('EDGEWISE_ACCESS_TOKEN');
+  $project_id = getenv('EDGEWISE_PROJECT_ID');
+  
   $config = ["access_token" => $access_token];
   $edgewise = new \Edgewise\EdgewiseClient($config);
-  $project_id = 8;
 
   print_r($edgewise->projects->contact([
     "projectId" => $project_id,
