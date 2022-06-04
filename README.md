@@ -29,20 +29,20 @@ Retrieve a project:
 ```php
 $edgewise = new \Edgewise\EdgewiseClient(['access_token' => 'my_edgewise_access_token']);
 $project = $edgewise->projects->get("project_id_or_slug");
-echo $project;
+print_r($project);
 ```
 
 Contact a project (upserts a lead):
 
 ```php
 $edgewise = new \Edgewise\EdgewiseClient(['access_token' => 'my_edgewise_access_token']);
-$edgewise->projects->contact([
+$project_contact = $edgewise->projects->contact([
   "projectId" => $project_id,
   "name" => "Peter Parker",
   "email" => "peter@dailybugle.com",
   "text" => "Testing PHP SDK."
 ]);
-echo $project_contact;
+print_r($project_contact);
 ```
 
 ## Examples
