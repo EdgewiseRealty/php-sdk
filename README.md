@@ -48,7 +48,7 @@ echo $project_contact;
 ## Examples
 
 You can use Docker to run a any of the SDK examples.
-Simply enter your access token, and edit the path to
+Simply enter your access token and project ID, and edit the path to
 the example you want to run.
 
 ```bash

@@ -13,6 +13,24 @@ class Lead
   }
 
   /**
+   * Response array keys:
+   *   id
+   *   name
+   *   email
+   *   phone
+   *   isAgent
+   *   status
+   *   source
+   *   metadata
+   *   address
+   *     thoroughfare
+   *     locality
+   *     administrativeArea
+   *     postalCode
+   *   insertedAt
+   *   updatedAt
+   *   
+   * @return array
    */
   public function get($lead_id)
   {

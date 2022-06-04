@@ -13,6 +13,35 @@ class Project
   }
 
   /**
+   * Response array keys:
+   *   id
+   *   title
+   *   slug
+   *   status
+   *   address
+   *     thoroughfare
+   *     locality
+   *     administrativeArea
+   *     postalCode
+   *   salesOffice
+   *     phone
+   *     email
+   *   abstract
+   *     units
+   *       moveInReady
+   *       available
+   *       sold
+   *       total
+   *   socialLinks
+   *     facebook
+   *     twitter
+   *     instagram
+   *   overview
+   *   overviewHeadline
+   *   insertedAt
+   *   updatedAt 
+   * 
+   * @return array
    */
   public function get($project_id)
   {
@@ -26,6 +55,20 @@ class Project
   }
 
   /**
+   * Response array keys:
+   *  id
+   *  title
+   *  slug
+   *    walkScore
+   *      link
+   *      walkScore
+   *      walkScoreDescription
+   *      bikeScore
+   *      bikeScoreDescription
+   *      transitScore
+   *      transitScoreDescription
+   * 
+   * @return array
    */
   public function getWalkScore($project_id)
   {
