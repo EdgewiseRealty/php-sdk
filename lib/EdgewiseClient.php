@@ -10,11 +10,14 @@ class EdgewiseClient
   private $token;
   private $endpoint;
   private $services;
+  private $version;
 
   /**
    */
   function __construct($config)
   {
+    $this->version = file_get_contents("../VERSION");
+
     if (array_key_exists("access_token", $config)) {
       $this->token = $config["access_token"];
     } else {
@@ -59,12 +62,15 @@ class EdgewiseClient
   public function request($query)
   {
     $ch = curl_init();
+
     curl_setopt($ch, CURLOPT_URL, $this->endpoint);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
       "content-type: application/json",
-      "authorization: Bearer $this->token"
+      "authorization: Bearer $this->token",
+      "edgewise-client-name: PHPSDK",
+      "edgewise-client-id: $this->version"
     ]);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_FAILONERROR, true);
