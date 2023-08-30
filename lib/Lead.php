@@ -20,6 +20,7 @@ class Lead
    *   phone
    *   isAgent
    *   status
+   *   origin
    *   source
    *   metadata
    *   address
@@ -55,6 +56,7 @@ class Lead
         phone
         isAgent
         status
+        origin
         source
         metadata
         address {
