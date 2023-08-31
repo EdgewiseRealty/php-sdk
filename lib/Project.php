@@ -124,6 +124,14 @@ class Project
   }
 
   /**
+   * DEPRECATED
+   */
+  public function allSecondarySources($project_id)
+  {
+    return $this->allSources($project_id);
+  }
+
+  /**
    */
   public function allSources($project_id)
   {
