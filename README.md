@@ -58,5 +58,5 @@ docker run -it --rm \
 -e EDGEWISE_PROJECT_ID=project_id_or_slug \
 -v "$PWD":/otp/app \
 -w /otp/app/examples/ \
-php:7.4-cli php project_info.php
+php:8.0-cli php project_info.php
 ```
