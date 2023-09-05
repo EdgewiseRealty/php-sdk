@@ -53,10 +53,12 @@ the example you want to run.
 
 ```bash
 docker run -it --rm \
---name edgewise-example \
+--name edgewise-phpsdk-example \
 -e EDGEWISE_ACCESS_TOKEN=my_edgewise_access_token \
 -e EDGEWISE_PROJECT_ID=project_id_or_slug \
 -v "$PWD":/otp/app \
 -w /otp/app/examples/ \
 php:8.0-cli php project_info.php
 ```
+
+> The `--rm` option removes the container after it exits.
