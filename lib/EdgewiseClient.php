@@ -80,7 +80,7 @@ class EdgewiseClient
     curl_setopt($ch, CURLOPT_FAILONERROR, true);
     
     $result = curl_exec($ch);
-    $error_msg;
+    $error_msg = null;
 
     if (curl_errno($ch)) {
       $error_msg = curl_error($ch);
