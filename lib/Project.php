@@ -124,16 +124,24 @@ class Project
   }
 
   /**
+   * DEPRECATED
    */
   public function allSecondarySources($project_id)
   {
+    return $this->allSources($project_id);
+  }
+
+  /**
+   */
+  public function allSources($project_id)
+  {
     $query = $this->client->encodeQuery([
-      "query" => $this->allSecondarySourcesQuery(),
+      "query" => $this->allLeadSourcesQuery(),
       "variables" => ["id" => $project_id]
     ]);
 
     $response = $this->client->request($query);
-    return $this->client->handleResponse($response)["project"]["secondaryLeadSources"];
+    return $this->client->handleResponse($response)["project"]["leadSources"];
   }
 
   /**
@@ -214,14 +222,14 @@ class Project
 
   /**
    */
-  private function allSecondarySourcesQuery()
+  private function allLeadSourcesQuery()
   {
-    return 'query PHPSdkAllProjectSecondarySources($id: ID!) {
+    return 'query PHPSdkAllProjectLeadSources($id: ID!) {
       project(id: $id) {
         id
         title
         slug
-        secondaryLeadSources {
+        leadSources {
           id
           name
         }

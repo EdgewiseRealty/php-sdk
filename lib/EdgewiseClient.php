@@ -24,9 +24,13 @@ class EdgewiseClient
       throw new \Exception("Edgewise API access token is required.");
     }
 
-    $this->endpoint = (array_key_exists("endpoint", $config))
-      ? $config["endpoint"]
-      : getenv('EDGEWISE_ENDPOINT') ?: self::DEFAULT_ENDPOINT;
+    if (array_key_exists("endpoint", $config)) {
+      $this->endpoint = $config["endpoint"];
+    } elseif (getenv('EDGEWISE_ENDPOINT')) {
+      $this->endpoint = getenv('EDGEWISE_ENDPOINT');
+    } else {
+      $this->endpoint = self::DEFAULT_ENDPOINT;
+    }
 
     $this->services = [];
   }
@@ -76,7 +80,7 @@ class EdgewiseClient
     curl_setopt($ch, CURLOPT_FAILONERROR, true);
     
     $result = curl_exec($ch);
-    $error_msg;
+    $error_msg = null;
 
     if (curl_errno($ch)) {
       $error_msg = curl_error($ch);

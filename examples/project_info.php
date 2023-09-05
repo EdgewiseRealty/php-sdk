@@ -9,7 +9,7 @@ try {
   $edgewise = new \Edgewise\EdgewiseClient($config);
 
   print_r($edgewise->projects->get($project_id));
-  // print_r($edgewise->projects->allSecondarySources($project_id));
+  // print_r($edgewise->projects->allSources($project_id));
   // print_r($edgewise->projects->getWalkScore($project_id));
   // print_r($edgewise->projects->allPublicDocuments($project_id));
   // print_r($edgewise->projects->allImages($project_id));
